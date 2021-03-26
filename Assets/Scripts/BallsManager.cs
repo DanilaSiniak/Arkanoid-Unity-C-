@@ -32,7 +32,7 @@ public class BallsManager : MonoBehaviour
     }
 
     #endregion
-    
+
     public List<Ball> Balls {get; set;}
 
     private void Start()
@@ -69,5 +69,4 @@ public class BallsManager : MonoBehaviour
           initialBall
         };
     }
-
 }
