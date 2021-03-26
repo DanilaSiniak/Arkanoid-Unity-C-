@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
 #endregion
 
   
-
+    public event Action<int> OnLiveLost;
     public GameObject gameOverScreen;
 
     public GameObject victoryScreen;
@@ -69,8 +70,8 @@ public class GameManager : MonoBehaviour
           }
           else
           {
-              // restart if 
-
+              
+              OnLiveLost?.Invoke(this.Lives);
               BallsManager.Instance.ResetBalls();
               IsGameStarted = false;
               BricksManager.Instance.LoadLevel(BricksManager.Instance.CurrentLevel);

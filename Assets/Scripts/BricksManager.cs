@@ -22,6 +22,11 @@ public class BricksManager : MonoBehaviour
       }
     }
   #endregion
+
+  
+  public event Action OnLevelLoaded;
+
+
   public Sprite[] Sprites;
   ///// Levels data, under 
   public Color[] BrickColors;
@@ -49,6 +54,7 @@ public class BricksManager : MonoBehaviour
     this.RemainingBricks = new List<Brick>();
     this.LevelsData = this.LoadLevelsData();
     this.GenerateBricks();
+    this.OnLevelLoaded?.Invoke();
   }
   public void LoadNextLevel()
   {
