@@ -50,8 +50,38 @@ public class BricksManager : MonoBehaviour
     this.LevelsData = this.LoadLevelsData();
     this.GenerateBricks();
   }
+  public void LoadNextLevel()
+  {
+    this.CurrentLevel++;
+
+    if(this.CurrentLevel >= this.LevelsData.Count)
+    {
+      GameManager.Instance.ShowVictoryScreen();
+    }
+    else
+    {
+        this.LoadLevel(this.CurrentLevel);
+    }
+  }
+
+  public void LoadLevel(int level)
+  {
+    this.CurrentLevel = level;
+    this.ClearRemainingBricks();
+    this.GenerateBricks();
+  }
+
+  private void ClearRemainingBricks()
+  {
+    foreach (Brick brick in this.RemainingBricks)
+    {
+      Destroy(brick.gameObject);
+    }
+  }
+
   private void GenerateBricks()
   {
+    this.RemainingBricks = new List<Brick>();
     int [,] currentLevelData = this.LevelsData[this.CurrentLevel];
     float currentSpawnX = initialBrickSpawnPositionX;
     float currentSpawnY = initialBrickSpawnPositionY;

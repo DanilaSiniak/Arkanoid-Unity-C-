@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BallsManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class BallsManager : MonoBehaviour
 
     public static BallsManager Instance => _instance;
 
-    private void Awake()
+    public void Awake()
     {
       if (_instance != null)
       {
@@ -56,6 +57,17 @@ public class BallsManager : MonoBehaviour
             }
         }
     }
+
+    public void ResetBalls()
+    {
+        foreach (var ball in this.Balls) /////)
+        {
+            Destroy(ball.gameObject);
+        }
+
+        InitBall();
+    }
+
 
     private void InitBall()
     {
