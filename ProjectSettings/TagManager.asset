@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
+  - Paddle
+  - DeathWall
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -40,16 +43,16 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
-    uniqueID: 1868148237
+    uniqueID: 1356780353
     locked: 0
   - name: Paddle
-    uniqueID: 4038019665
+    uniqueID: 3103317685
     locked: 0
   - name: Ball
-    uniqueID: 1593404569
+    uniqueID: 1076866943
     locked: 0
-  - name: Brick
-    uniqueID: 1980849341
+  - name: Bricks
+    uniqueID: 3310678319
     locked: 0
   - name: Default
     uniqueID: 0
